@@ -26,7 +26,18 @@ public class TodoService {
     }
 
     public List<Todo> findReadyTodo(){
-        return todoRepository.findByS;
+        String status = "ready";
+        return todoRepository.findByStatus(status);
+    }
+
+    public List<Todo> findProgressTodo(){
+        String status = "progress";
+        return todoRepository.findByStatus(status);
+    }
+
+    public List<Todo> findFinishTodo(){
+        String status = "finish";
+        return todoRepository.findByStatus(status);
     }
 
 
