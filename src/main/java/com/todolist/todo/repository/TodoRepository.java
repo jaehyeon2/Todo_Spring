@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface TodoRepository {
     Todo save(Todo todo);
     Optional<Todo> findByTodo(String todo);
-    List<Todo> findStatus(String status);
+    List<Todo> findByStatus(String status);
     List<Todo> findAll();
 }

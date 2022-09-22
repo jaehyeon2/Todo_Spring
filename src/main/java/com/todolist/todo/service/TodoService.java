@@ -13,7 +13,9 @@ public class TodoService {
     }
 
     public String add(Todo todo){
-        validateDuplicateTodo(todo)
+        validateDuplicateTodo(todo);
+        todoRepository.save(todo);
+        return todo.getTodo();
     }
 
     private void validateDuplicateTodo(Todo todo){
@@ -23,7 +25,9 @@ public class TodoService {
                 });
     }
 
-    public List<Todo> showTodo(){
-        return todoRepository.findAll();
+    public List<Todo> findReadyTodo(){
+        return todoRepository.findByS;
     }
+
+
 }

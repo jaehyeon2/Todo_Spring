@@ -28,8 +28,11 @@ public class JpaTodoRepository implements TodoRepository{
     }
 
     @Override
-    public List<Todo> findStatus(String status) {
-        return null;
+    public List<Todo> findByStatus(String status) {
+        List<Todo> result = em.createQuery("select t from Todo t where t.status = :status", Todo.class)
+                .setParameter("status", status)
+                .getResultList();
+        return result;
     }
 
     @Override
