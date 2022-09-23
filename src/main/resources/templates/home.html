@@ -3,8 +3,73 @@
 <body>
 <div class="controller">
   <div>
+    <h1>Home</h1>
+    <div style="float: left; width: 33%;">
+      <table>
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Todo</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="todo : ${readyTodo}">
+          <td th:text="${todo.id}"></td>
+          <td th:text="${todo.todo}"></td>
+          <td th:text="${todo.status}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="float: left; width: 33%;">
+      <table>
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Todo</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="todo : ${progressTodo}">
+          <td th:text="${todo.id}"></td>
+          <td th:text="${todo.todo}"></td>
+          <td th:text="${todo.status}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="float: left; width: 33%;">
+      <table>
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Todo</th>
+          <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="todo : ${finishTodo}">
+          <td th:text="${todo.id}"></td>
+          <td th:text="${todo.todo}"></td>
+          <td th:text="${todo.status}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+  <button onClick="pop()">Todo 추가</button>
+
+
 </div>
 <!--container-->
 </body>
+<script>
+  function pop(){
+
+  }
+</script>
 </html>
