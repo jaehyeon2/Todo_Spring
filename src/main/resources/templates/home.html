@@ -17,7 +17,11 @@
         <tr th:each="todo : ${readyTodo}">
           <td th:text="${todo.id}"></td>
           <td th:text="${todo.todo}"></td>
-          <td th:text="${todo.status}"></td>
+          <td>
+            <form action="edit/${todo.id}" method="post">
+              <button th:text="${todo.status}" type="submit">next</button>
+            </form>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -61,15 +65,28 @@
       </table>
     </div>
   </div>
-  <button onClick="pop()">Todo 추가</button>
+  <div id="todoForm" style="display: none">
+    <form action="/todo" method="post">
+      <div>
+        <label for="todo">Todo</label>
+        <input type="text" placeholder="todo를 입력하세요." id="todo" name="todo" required>
+      </div>
+      <button type="submit" onClick="closeForm()">add</button>
+    </form>
+  </div>
+  <button onClick="openForm()">Todo 추가</button>
 
 
 </div>
 <!--container-->
 </body>
 <script>
-  function pop(){
+  function openForm(){
+    document.getElementById("todoForm").style.display="block";
+  }
 
+  function closeForm(){
+    document.getElementById("todoForm").style.display="none"
   }
 </script>
 </html>

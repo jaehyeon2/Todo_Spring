@@ -4,6 +4,7 @@ import com.todolist.todo.domain.Todo;
 import com.todolist.todo.repository.TodoRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class TodoService {
     private final TodoRepository todoRepository;
@@ -25,6 +26,10 @@ public class TodoService {
                 });
     }
 
+    public Optional<Todo> findById(Long id){
+        return todoRepository.findById(id);
+    }
+
     public List<Todo> findReadyTodo(){
         String status = "ready";
         return todoRepository.findByStatus(status);
@@ -39,6 +44,5 @@ public class TodoService {
         String status = "finish";
         return todoRepository.findByStatus(status);
     }
-
 
 }

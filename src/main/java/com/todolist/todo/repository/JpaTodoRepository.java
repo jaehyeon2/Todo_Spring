@@ -28,6 +28,15 @@ public class JpaTodoRepository implements TodoRepository{
     }
 
     @Override
+    public Optional<Todo> findById(Long id){
+        List<Todo> result = em.createQuery("select t from Todo t where t.id = :id", Todo.class)
+                .setParameter("id", id)
+                .getResultList();
+
+        return result.stream().findAny();
+    }
+
+    @Override
     public List<Todo> findByStatus(String status) {
         List<Todo> result = em.createQuery("select t from Todo t where t.status = :status", Todo.class)
                 .setParameter("status", status)
@@ -41,4 +50,5 @@ public class JpaTodoRepository implements TodoRepository{
                 .getResultList();
         return result;
     }
+
 }
